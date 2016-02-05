@@ -29,11 +29,11 @@ def upload_song(name=None):
         f = request.files['full_track']
         if f and allowed_file(f.filename):
             filename = secure_filename(f.filename)
-            fkaraoke = os.path.splitext(filename)[0] + ' (karaoke).mp3'
-            instrumental = strip_vocals(f.read(), filename)
+            fkaraoke = (os.path.splitext(f.filename)[0] + ' (karaoke).mp3').encode('utf-8')
+            instrumental = strip_vocals(f.read())
             response = make_response(instrumental)
             response.headers['Content-Type'] = "application/octet-stream"
-            response.headers["Content-Disposition"] = "attachment; filename=" + fkaraoke
+            response.headers["Content-Disposition"] = "attachment; filename='" + fkaraoke + "'"
             return response
 #            return render_template('songupload.html', name=instrumental.filename)
         else:
