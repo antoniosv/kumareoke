@@ -1,0 +1,3 @@
+Uses stdin and stdout 
+
+less <&0 buddy.mp3 | sox -t .mp3 - -t .mp3 - oops | play -t .mp3 -
