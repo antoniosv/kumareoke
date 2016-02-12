@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang=es-MX">
+<head>
+  <meta charset="utf-8">
+  <title>Kumareoke - Versión Beta</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<div class=page>
+  <h1>Kumareoke</h1>
+  <div class=metanav>
+    <ul>
+      <li><a href="{{ url_for('index') }}">Inicio</a></li>
+      <li><a href="{{ url_for('show_songs') }}">Historial de Canciones</a></li>
+    {% if not session.logged_in %}
+      <li><a href="{{ url_for('login') }}">Ingresar</a></li>
+    {% else %}
+      <li><a href="{{ url_for('logout') }}">Salir</a></li>
+    {% endif %}
+    </ul>
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+    {% endfor %}
+    {% block body %}{% endblock %}
+</div>

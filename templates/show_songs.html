@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+<p>Últimas 10 canciones que se han hecho karaoke:</p>
+<ol class="songs">  
+  {% for song in songs %}
+    <li><strong>{{ song.title }}</strong></li>
+  {% else %}
+    <li><em>No disponible. No hay canciones registradas aún</em></li>
+  {% endfor %}
+</ol>
+
+{% endblock %}

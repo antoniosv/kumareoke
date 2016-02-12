@@ -1,0 +1,8 @@
+# Temp. saves
+*~
+*.db
+*.pyc
+*#
+
+# Scrap
+sample/

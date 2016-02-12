@@ -8,6 +8,9 @@ Dependencies (could work on older/newer versions):
 - SoX 14.4.1
 - SoX format handlers for mp3, wav, ogg, and flac (install with apt-get libsox-fmt-all)
 
+Database must be initialized beforehand with sqlite3 in the following manner:
+$ sqlite3 kumareoke.db < song_schema.sql
+
 Run web app with:
 $ python setup.py
 

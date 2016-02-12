@@ -1,14 +1,9 @@
-<!doctype html>
-<html lang="es-MX">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>Subir Archivo de Audio con Voz</title>
-  </head>
+{% extends "layout.html" %}
+{% block body %}
   {% if name %}
   <h1>¡La pista {{ name }} ha sido exitosamente subida! <br/>Lista para crear la pista karaoke.</h1>
   {% else %}
-  <h1>Subir Archivo de Audio con Voz</h1>
+  <h2>Subir Archivo de Audio con Voz</h2>
   <p>Formatos soportados:</p>
   <ul>
     {% for type in extensions %}
@@ -33,3 +28,5 @@
 </fieldset>
 </form>
 {% endif %}
+
+{% endblock %}
